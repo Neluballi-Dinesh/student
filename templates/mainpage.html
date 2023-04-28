@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    {%include 'cdnlines.html' %}
+  </head>
+  <body>
+    <h1 class="text-center display-3 font-weight-bold text-primary">Welcome to NTH Students</h1>
+    <div class="text-right" style="margin-right:130px;">
+      <a href="{% url 'add_student' %}" class="btn btn-success">Add New student</a>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          {% if students %}
+          <table class="table table-bordered bg-success text-white mt-2">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Course</th>
+                <th>Fee</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody class="bg-dark text-white">
+              {% for i in students%}
+              <tr>
+                <td>{{i.first_name}}</td>
+                <td>{{i.last_name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.mobile}}</td>
+                <td>{{i.course}}</td>
+                <td>{{i.fee}}</td>
+                <td>{{i.location}}</td>
+              </tr>
+               {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <h1 class="text-danger"}Students Data is not available</h1>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
